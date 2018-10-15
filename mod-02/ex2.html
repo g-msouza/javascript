@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <button id="new">Novo quadrado</button>
+    <div id="squares"></div>
+
+    <script>
+        const square = document.getElementById('squares');
+        const buttonElement = document.getElementById('new');
+        buttonElement.onclick = function() {
+            const quadrado = document.createElement('div');
+            square.style.paddingTop = '5px',
+            quadrado.style.paddingTop = '5px';
+            quadrado.style.width = '100px';
+            quadrado.style.height = '100px';
+            quadrado.style.backgroundColor = '#F00';
+            square.appendChild(quadrado);
+
+            quadrado.onmouseover = function () {
+                quadrado.style.backgroundColor = getRandomColor();
+            }
+        };
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
